@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from './Person/Person'
-import radium, {StyleRoot} from 'radium'
 
 class App extends Component {
     state = {
@@ -57,39 +56,30 @@ class App extends Component {
     render() {
 
         const style = {
-            backgroundColor: 'green',
-            ':hover': {
-                backgroundColor: 'orange'
-            }
+            backgroundColor: 'green'
         }
 
         let persons = null
 
         if (this.state.showPersons) {
             persons = (
-                <StyleRoot>
-                    <div>
-                        {this.state.persons.map( (person, index) => {
-                            return <Person
-                                        key={person.id}
-                                        name={person.name}
-                                        removePerson={() => this.removePersonHandler(index)}
-                                        age={person.age} 
-                                        changed={(event) => this.nameChangeHandler(event, person.id)} />
-                            }
-                        )}
-                    </div>
-                </StyleRoot>
+                <div>
+                    {this.state.persons.map( (person, index) => {
+                        return <Person
+                                    key={person.id}
+                                    name={person.name}
+                                    removePerson={() => this.removePersonHandler(index)}
+                                    age={person.age} 
+                                    changed={(event) => this.nameChangeHandler(event, person.id)} />
+                        }
+                    )}
+                </div>
             )
 
             style.backgroundColor = 'red'
-            style[':hover'] = {
-                backgroundColor: 'yellow'
-            }
         }
 
         
-
         if (this.state.persons.length === 2) {
             this.classes.push('red')
         }
@@ -116,4 +106,4 @@ class App extends Component {
     }
 }
 
-export default radium(App);
+export default App;
