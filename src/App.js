@@ -55,11 +55,8 @@ class App extends Component {
 
     render() {
 
-        const style = {
-            backgroundColor: 'green'
-        }
-
         let persons = null
+        let btnClass = ''
 
         if (this.state.showPersons) {
             persons = (
@@ -76,7 +73,8 @@ class App extends Component {
                 </div>
             )
 
-            style.backgroundColor = 'red'
+            btnClass = classes.red
+
         }
 
         
@@ -97,7 +95,7 @@ class App extends Component {
                 </header>
                 <p className={this.assignedClasses.join(' ')}>this is really working</p>
                 
-                <button style={style} onClick={this.showPersons}>click me</button>
+                <button className={btnClass} onClick={this.showPersons}>click me</button>
                 {persons}
             </div>
 
