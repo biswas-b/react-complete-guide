@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
         this.setState({persons: persons})
     }
 
-    classes = []
+    assignedClasses = []
 
     render() {
 
@@ -81,21 +81,21 @@ class App extends Component {
 
         
         if (this.state.persons.length === 2) {
-            this.classes.push('red')
+            this.assignedClasses.push(classes.red)
         }
 
         if (this.state.persons.length === 1) {
-            this.classes.push('bold')
+            this.assignedClasses.push(classes.bold)
         }
 
         return (
-            <div className="App">
+            <div className={classes.App}>
                 <header className="App-header">
                     <div>
                         Hi, I am a react app 2.
                     </div>
                 </header>
-                <p className={this.classes.join(' ')}>this is really working</p>
+                <p className={this.assignedClasses.join(' ')}>this is really working</p>
                 
                 <button style={style} onClick={this.showPersons}>click me</button>
                 {persons}

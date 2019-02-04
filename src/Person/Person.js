@@ -1,9 +1,9 @@
 import React from 'react';
-import './Person.css';
+import classes from './Person.css';
 
 const person = (props) => {
 
-    return <div className="person">
+    return <div className={classes.person}>
         My name is 
         <span onClick={props.removePerson}>{props.name}</span> I am {props.age} years old
         <div>{props.children}</div>
